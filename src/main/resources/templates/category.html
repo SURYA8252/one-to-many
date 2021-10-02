@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add new Category</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body style="background: -webkit-linear-gradient(to right, #00467f, #a5cc82);
+  background: linear-gradient(to right, #00467f, #a5cc82);">
+<div class="container">
+  <h1 class="text-center mt-1">Add new Category</h1>
+  <div class="container mt-5">
+    <div class="col-md-6 offset-md-3">
+       <div class="card">
+    <div class="card-body">
+       <form th:action="@{/categories/save}" th:object="${category}" method="post">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Categories</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" th:field="*{name}" aria-describedby="emailHelp" placeholder="Enter Categories" required="required" />
+  </div>
+  <div class="container text-center">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+    </div>
+  </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

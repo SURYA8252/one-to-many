@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>List Brands</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<body style="background: -webkit-linear-gradient(to right, #00467f, #a5cc82);
+  background: linear-gradient(to right, #00467f, #a5cc82);">
+  <div class="container text-white text-center">
+    <h1 class="mt-1">List Brand</h1>
+    <table class="table text-white table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Categories</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <th:block th:each="brands : ${listBrands}">
+       <tr>
+         <td>[[${brands.id}]]</td>
+         <td>[[${brands.name}]]</td>
+         <td>[[${brands.categories}]]</td>
+         <td>
+           <a th:href="@{'/brand/edit/' +${brands.id}}">Edit</a>&nbsp;
+           <a th:href="@{'/brand/delete/' +${brands.id}}">Delete</a>
+         </td>
+       </tr>
+    </th:block>
+  </tbody>
+  </table>
+  </div>
+</body>
+</html>
